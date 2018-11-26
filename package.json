@@ -3,7 +3,8 @@
     "displayName": "copy-directory-path",
     "description": "Copies path of directory to clipboard",
     "version": "0.0.1",
-    "publisher": "sumpan@gmail.com",
+    "publisher": "daniels",
+    "repository": "https://github.com/DanielSundberg/copy-directory-path",
     "engines": {
         "vscode": "^1.29.0"
     },

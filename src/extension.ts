@@ -12,25 +12,17 @@ export function activate(context: vscode.ExtensionContext) {
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "copy-directory-path" is now active!');
 
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerCommand('extension.copyDirectoryPath', () => {
-        // The code you place here will be executed every time your command is executed
 
-        // Display a message box to the user
-        // vscode.window.showInformationMessage('Hello World!');
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
             return;
         }
 
-        //get the relative url, parse it and take the last part
+        
         let filename = editor.document.fileName;
-        //  vscode.window.pa workspace. .asRelativePath(uri);
-        // let urlFormatted = url.replace(/\\/g, '/')
-        // let lastPart = urlFormatted.split('/').pop();
 
+        // Extract and return directory path
         if (filename.includes("\\")) {
             let dirPath = filename.substring(0, filename.lastIndexOf('\\'));
             copyPaste.copy(dirPath, () => vscode.window.showInformationMessage(`Directory path "${dirPath}" has been copied to clipboard`));
